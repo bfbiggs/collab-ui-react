@@ -8,8 +8,8 @@ import { Input } from '@collab-ui/react';
  * @variations collab-ui-react
  */
 
-export default class EditableTextfield extends React.PureComponent {
-  static displayName = 'EditableTextfield';
+export default class EditableTextField extends React.PureComponent {
+  static displayName = 'EditableTextField';
 
   state = {
     isEditing: false,
@@ -22,44 +22,37 @@ export default class EditableTextfield extends React.PureComponent {
     }
   }
 
+  setEditing = () => {
+    const { disabled } = this.props;
+
+    return !disabled
+      && this.setState({
+        isEditing: true,
+      });
+  }
+
   handleDoneEditing = value => {
-    const { handleDoneEditing } = this.props;
+    const { onDoneEditing } = this.props;
 
     this.setState({
       isEditing: false,
       inputText: value,
     });
 
-    if (handleDoneEditing) {
-      handleDoneEditing(value);
+    if (onDoneEditing) {
+      onDoneEditing(value);
     }
   }
 
   handleClick = () => {
-    const { disabled } = this.props;
-
-    if(disabled) {
-      return;
-    } else {
-      this.setState({
-        isEditing: true,
-      });
-    }
+    this.setEditing();
   }
 
   handleKey = e => {
-    const { disabled } = this.props;
-
     e.stopPropagation();
     e.preventDefault();
 
-    if(disabled) {
-      return;
-    } else {
-      this.setState({
-        isEditing: true
-      });
-    }
+    this.setEditing();
   }
 
   handleDoneKeyDown = e => {
@@ -76,44 +69,45 @@ export default class EditableTextfield extends React.PureComponent {
     const { className } = this.props;
     const { isEditing, inputText } = this.state;
 
-    return(
+    return (
       <div>
-        {isEditing &&
-          <Input
-            className={
-              'cui-editable-textfield' +
-              ' cui-editable-textfield__editing' +
-              `${className && ` ${className}` || ''}`
-            }
-            inputRef={(input) => { this.editText = input; }}
-            defaultValue={inputText}
-            htmlId='editText'
-            name='editText'
-            onDoneEditing={this.handleDoneEditing}
-            onKeyDown={this.handleDoneKeyDown}
-          />
-        }
-        {!isEditing &&
-          <span
-            role='button'
-            tabIndex={0}
-            className={
-              'cui-editable-textfield' +
-              ' cui-editable-textfield__span' +
-              `${className && ` ${className}` || ''}`
-            }
-            onClick={this.handleClick}
-            onKeyPress={this.handleKey}
-          >
-            {inputText}
-          </span>
+        {
+          isEditing
+            ?
+            <Input
+              className={
+                'cui-editable-textfield' +
+                ' cui-editable-textfield__editing' +
+                `${className && ` ${className}` || ''}`
+              }
+              inputRef={(input) => { this.editText = input; }}
+              defaultValue={inputText}
+              htmlId='editText'
+              name='editText'
+              onDoneEditing={this.handleDoneEditing}
+              onKeyDown={this.handleDoneKeyDown}
+            />
+            :
+            <span
+              role='button'
+              tabIndex={0}
+              className={
+                'cui-editable-textfield' +
+                ' cui-editable-textfield__span' +
+                `${className && ` ${className}` || ''}`
+              }
+              onClick={this.handleClick}
+              onKeyPress={this.handleKey}
+            >
+              {inputText}
+            </span>
         }
       </div>
     );
   }
 }
 
-EditableTextfield.propTypes = {
+EditableTextField.propTypes = {
   /**
    * css class names
    */
@@ -129,19 +123,19 @@ EditableTextfield.propTypes = {
   /**
    * optional function for blur
    */
-  handleDoneEditing: PropTypes.func,
+  onDoneEditing: PropTypes.func,
 };
 
-EditableTextfield.defaultProps = {
+EditableTextField.defaultProps = {
   className: '',
   inputText: '',
   disabled: false,
-  handleDoneEditing: null,
+  onDoneEditing: null,
 };
 
 
 /**
-* @name Default EditableTextfield
+* @name Default EditableTextField
 * @description default
 *
 * @category controls
@@ -159,10 +153,10 @@ export default class PlaygroundComponent extends React.Component {
     return (
       <div>
         <div className="docui-example docui-example--spacing" style={{padding: '16px'}}>
-          <EditableTextfield inputText='Hello World' handleDoneEditing={(value) =>this.consoleChange(value)}/>
+          <EditableTextField inputText='Hello World' onDoneEditing={(value) =>this.valueChange(value)}/>
         </div>
         <div className='cui--dark docs-example--dark' style={{padding: '16px'}}>
-          <EditableTextfield inputText='Hello Dark World'/>
+          <EditableTextField inputText='Hello Dark World'/>
         </div>
     </div>
     );

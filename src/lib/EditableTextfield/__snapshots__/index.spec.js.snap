@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`tests for <EditableTextfield /> should render an Editable Textfield 1`] = `
+exports[`tests for <EditableTextField /> should render an Editable Textfield 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <EditableTextfield
+  Symbol(enzyme.__unrendered__): <EditableTextField
     className=""
     disabled={false}
-    handleDoneEditing={null}
     inputText=""
+    onDoneEditing={null}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -22,9 +22,42 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": Array [
-        false,
-        <span
+      "children": <span
+        className="cui-editable-textfield cui-editable-textfield__span"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        
+      </span>,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": "",
+        "className": "cui-editable-textfield cui-editable-textfield__span",
+        "onClick": [Function],
+        "onKeyPress": [Function],
+        "role": "button",
+        "tabIndex": 0,
+      },
+      "ref": null,
+      "rendered": "",
+      "type": "span",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <span
           className="cui-editable-textfield cui-editable-textfield__span"
           onClick={[Function]}
           onKeyPress={[Function]}
@@ -33,12 +66,9 @@ ShallowWrapper {
         >
           
         </span>,
-      ],
-    },
-    "ref": null,
-    "rendered": Array [
-      false,
-      Object {
+      },
+      "ref": null,
+      "rendered": Object {
         "instance": null,
         "key": undefined,
         "nodeType": "host",
@@ -54,48 +84,6 @@ ShallowWrapper {
         "rendered": "",
         "type": "span",
       },
-    ],
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": Array [
-          false,
-          <span
-            className="cui-editable-textfield cui-editable-textfield__span"
-            onClick={[Function]}
-            onKeyPress={[Function]}
-            role="button"
-            tabIndex={0}
-          >
-            
-          </span>,
-        ],
-      },
-      "ref": null,
-      "rendered": Array [
-        false,
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "",
-            "className": "cui-editable-textfield cui-editable-textfield__span",
-            "onClick": [Function],
-            "onKeyPress": [Function],
-            "role": "button",
-            "tabIndex": 0,
-          },
-          "ref": null,
-          "rendered": "",
-          "type": "span",
-        },
-      ],
       "type": "div",
     },
   ],
