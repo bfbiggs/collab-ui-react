@@ -36,6 +36,7 @@ export { default as InputHelper } from './InputHelper';
 export { default as Label } from './Label';
 export { default as List } from './List';
 export { default as ListItem } from './ListItem';
+export { default as ListItemHeader } from './ListItemHeader';
 export { default as ListItemSection } from './ListItemSection';
 export { default as ListSeparator } from './ListSeparator';
 export { default as Loading } from './Loading';
