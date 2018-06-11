@@ -83,6 +83,7 @@ ShallowWrapper {
             aria-labelledby="cui-select-1__label"
             aria-multiselectable={false}
             className=""
+            focusFirst={true}
             id={null}
             isMulti={false}
             itemRole="option"
@@ -196,6 +197,7 @@ ShallowWrapper {
             aria-labelledby="cui-select-1__label"
             aria-multiselectable={false}
             className=""
+            focusFirst={true}
             id={null}
             isMulti={false}
             itemRole="option"
@@ -232,6 +234,7 @@ ShallowWrapper {
             "aria-multiselectable": false,
             "children": null,
             "className": "",
+            "focusFirst": true,
             "id": null,
             "isMulti": false,
             "itemRole": "option",
@@ -318,6 +321,7 @@ ShallowWrapper {
               aria-labelledby="cui-select-1__label"
               aria-multiselectable={false}
               className=""
+              focusFirst={true}
               id={null}
               isMulti={false}
               itemRole="option"
@@ -431,6 +435,7 @@ ShallowWrapper {
               aria-labelledby="cui-select-1__label"
               aria-multiselectable={false}
               className=""
+              focusFirst={true}
               id={null}
               isMulti={false}
               itemRole="option"
@@ -467,6 +472,7 @@ ShallowWrapper {
               "aria-multiselectable": false,
               "children": null,
               "className": "",
+              "focusFirst": true,
               "id": null,
               "isMulti": false,
               "itemRole": "option",
