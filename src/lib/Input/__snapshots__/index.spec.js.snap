@@ -24,7 +24,6 @@ ShallowWrapper {
     onMouseDown={null}
     placeholder=""
     readOnly={false}
-    required={false}
     secondaryLabel=""
     type="number"
     value=""
@@ -228,7 +227,6 @@ ShallowWrapper {
     onMouseDown={null}
     placeholder=""
     readOnly={false}
-    required={false}
     secondaryLabel=""
     type="password"
     value=""
@@ -432,7 +430,6 @@ ShallowWrapper {
     onMouseDown={null}
     placeholder=""
     readOnly={false}
-    required={false}
     secondaryLabel=""
     type="text"
     value=""

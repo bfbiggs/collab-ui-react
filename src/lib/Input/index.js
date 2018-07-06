@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { omit } from 'lodash';
 import {
   InputError,
   InputHelper,
@@ -102,27 +103,36 @@ class Input extends React.Component {
 
   render() {
     const {
+      children,
       className,
       defaultValue,
-      inputClassName,
-      inputSize,
-      inputRef,
-      htmlId,
-      name,
-      label,
-      type,
-      errorArr,
-      placeholder,
-      inputHelpText,
-      children,
       disabled,
+      errorArr,
+      htmlId,
+      inputClassName,
+      inputHelpText,
+      inputRef,
+      inputSize,
+      label,
+      nestedLevel,
+      placeholder,
       readOnly,
       secondaryLabel,
-      nestedLevel,
+      type,
+      ...props
     } = this.props;
     const {
       value
     } = this.state;
+
+    const otherProps = omit({...props}, [
+      'onChange',
+      'onDoneEditing',
+      'onFocus',
+      'onKeyDown',
+      'onMouseDown',
+      'value'
+    ]);
 
     const errorType =
       (errorArr.length > 0 && determineErrorType(errorArr)) || '';
@@ -153,9 +163,7 @@ class Input extends React.Component {
           `${(value) ? ` dirty` : ''}`
 
         }
-        id={htmlId}
         type={type}
-        name={name}
         onKeyDown={this.handleKeyDown}
         onBlur={this.handleBlur}
         onFocus={this.handleFocus}
@@ -167,6 +175,8 @@ class Input extends React.Component {
         disabled={disabled}
         readOnly={readOnly}
         tabIndex={0}
+        {...htmlId && { id: htmlId }}
+        {...otherProps}
       />
     );
 
@@ -193,81 +203,77 @@ class Input extends React.Component {
 }
 
 Input.defaultProps = {
+  children: '',
+  className: '',
+  defaultValue: '',
+  disabled: false,
+  errorArr: [],
+  inputClassName: '',
+  inputHelpText: '',
+  inputRef: null,
+  inputSize: '',
+  label: '',
+  nestedLevel: 0,
+  onChange: null,
   onDoneEditing: null,
-  onMouseDown: null,
   onFocus: null,
   onKeyDown: null,
-  type: 'text',
-  defaultValue: '',
+  onMouseDown: null,
   placeholder: '',
-  inputHelpText: '',
-  value: '',
-  errorArr: [],
-  children: '',
-  required: false,
-  inputSize: '',
-  onChange: null,
-  inputRef: null,
-  disabled: false,
   readOnly: false,
   secondaryLabel: '',
-  nestedLevel: 0,
-  className: '',
-  inputClassName: ''
+  type: 'text',
+  value: '',
 };
 
 Input.propTypes = {
-  /** Div Input ClassName */
-  inputClassName: PropTypes.string,
-  /** Div Input ClassName */
-  className: PropTypes.string,
-  /** Input label */
-  label: PropTypes.string,
-  /** Unique HTML ID. Used for tying label to HTML input. Handy hook for automated testing. */
-  htmlId: PropTypes.string.isRequired,
-  /** Input name. Recommend setting this to match object's property so a single change handler can be used. */
-  name: PropTypes.string.isRequired,
-  /** Overall input group size. */
-  inputSize: PropTypes.string,
-  /** Function to call onChange */
-  onChange: PropTypes.func,
-  /** Secondary Input label */
-  secondaryLabel: PropTypes.string,
-  /** Input type */
-  type: PropTypes.oneOf(['text', 'number', 'password', 'email']),
-  /** HTML attribute for whether input is required */
-  required: PropTypes.bool,
-  /** Placeholder to display when empty */
-  placeholder: PropTypes.string,
-  /** Help Text to show form validation rules */
-  inputHelpText: PropTypes.string,
-  /** Value */
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /** Default Value same as value but used when onChange isn't */
-  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /** Includes Array of Objects with error and type
-    [{error: '', type: ''}] to display
-    error message and assign class
-  */
-  errorArr: PropTypes.array,
   /** Child component to display next to the input */
   children: PropTypes.node,
-  /*** optional ref prop type */
-  inputRef: PropTypes.func,
+  /** Div Input ClassName */
+  className: PropTypes.string,
+  /** Default Value same as value but used when onChange isn't */
+  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /*** optional disabled prop type */
   disabled: PropTypes.bool,
-  /*** optional read-only prop type */
-  readOnly: PropTypes.bool,
+  /** Includes Array of Objects with error and type
+   [{error: '', type: ''}] to display
+   error message and assign class
+   */
+  errorArr: PropTypes.array,
+  /** Unique HTML ID. Used for tying label to HTML input. Handy hook for automated testing. */
+  htmlId: PropTypes.string,
+  /** Div Input ClassName */
+  inputClassName: PropTypes.string,
+  /** Help Text to show form validation rules */
+  inputHelpText: PropTypes.string,
+  /*** optional ref prop type */
+  inputRef: PropTypes.func,
+  /** Overall input group size. */
+  inputSize: PropTypes.string,
+  /** Input label */
+  label: PropTypes.string,
   /*** optional nextLevel prop type */
   nestedLevel: PropTypes.number,
+  /** Function to call onChange */
+  onChange: PropTypes.func,
   /*** optional function for blur prop type */
   onDoneEditing: PropTypes.func,
   /*** optional function for focus prop type */
   onFocus: PropTypes.func,
-  /*** optional function for mouse down event */
-  onMouseDown: PropTypes.func,
   /*** optional function for key up event */
   onKeyDown: PropTypes.func,
+  /*** optional function for mouse down event */
+  onMouseDown: PropTypes.func,
+  /** Placeholder to display when empty */
+  placeholder: PropTypes.string,
+  /*** optional read-only prop type */
+  readOnly: PropTypes.bool,
+  /** Secondary Input label */
+  secondaryLabel: PropTypes.string,
+  /** Input type */
+  type: PropTypes.oneOf(['text', 'number', 'password', 'email']),
+  /** Value */
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 export default Input;

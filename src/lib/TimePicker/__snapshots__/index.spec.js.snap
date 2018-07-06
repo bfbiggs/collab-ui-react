@@ -7,6 +7,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <TimePicker
     className=""
     id="test"
+    inputId=""
     militaryTime={false}
     minuteInterval={1}
     onChange={null}
@@ -30,13 +31,13 @@ ShallowWrapper {
           defaultValue="2:42 PM"
           disabled={false}
           errorArr={Array []}
-          htmlId="timepicker"
+          id="cui-timepicker__input-1"
           inputClassName=""
           inputHelpText=""
           inputRef={[Function]}
           inputSize=""
           label=""
-          name="timepicker"
+          name="cui-timepicker__input-1"
           nestedLevel={0}
           onChange={[Function]}
           onDoneEditing={null}
@@ -45,7 +46,6 @@ ShallowWrapper {
           onMouseDown={[Function]}
           placeholder=""
           readOnly={true}
-          required={false}
           secondaryLabel=""
           type="text"
           value=""
@@ -127,13 +127,13 @@ ShallowWrapper {
           "defaultValue": "2:42 PM",
           "disabled": false,
           "errorArr": Array [],
-          "htmlId": "timepicker",
+          "id": "cui-timepicker__input-1",
           "inputClassName": "",
           "inputHelpText": "",
           "inputRef": [Function],
           "inputSize": "",
           "label": "",
-          "name": "timepicker",
+          "name": "cui-timepicker__input-1",
           "nestedLevel": 0,
           "onChange": [Function],
           "onDoneEditing": null,
@@ -142,7 +142,6 @@ ShallowWrapper {
           "onMouseDown": [Function],
           "placeholder": "",
           "readOnly": true,
-          "required": false,
           "secondaryLabel": "",
           "type": "text",
           "value": "",
@@ -341,13 +340,13 @@ ShallowWrapper {
             defaultValue="2:42 PM"
             disabled={false}
             errorArr={Array []}
-            htmlId="timepicker"
+            id="cui-timepicker__input-1"
             inputClassName=""
             inputHelpText=""
             inputRef={[Function]}
             inputSize=""
             label=""
-            name="timepicker"
+            name="cui-timepicker__input-1"
             nestedLevel={0}
             onChange={[Function]}
             onDoneEditing={null}
@@ -356,7 +355,6 @@ ShallowWrapper {
             onMouseDown={[Function]}
             placeholder=""
             readOnly={true}
-            required={false}
             secondaryLabel=""
             type="text"
             value=""
@@ -438,13 +436,13 @@ ShallowWrapper {
             "defaultValue": "2:42 PM",
             "disabled": false,
             "errorArr": Array [],
-            "htmlId": "timepicker",
+            "id": "cui-timepicker__input-1",
             "inputClassName": "",
             "inputHelpText": "",
             "inputRef": [Function],
             "inputSize": "",
             "label": "",
-            "name": "timepicker",
+            "name": "cui-timepicker__input-1",
             "nestedLevel": 0,
             "onChange": [Function],
             "onDoneEditing": null,
@@ -453,7 +451,6 @@ ShallowWrapper {
             "onMouseDown": [Function],
             "placeholder": "",
             "readOnly": true,
-            "required": false,
             "secondaryLabel": "",
             "type": "text",
             "value": "",
