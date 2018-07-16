@@ -3,7 +3,7 @@ const { startCase, toLower } = require('lodash');
 // JSON file including Navigation
 const docs = require('../src/docs/data/docs');
 // Chalk Colors the Text
-const { chalkError, chalkSuccess } = require('../config/chalkConfig');
+const { chalkError } = require('../config/chalkConfig');
 // Root Directory of Docs Components
 const argv = process.argv.slice(2)[0];
 const rootDir = `${argv || '.'}/src/docs/components`;
@@ -19,7 +19,6 @@ const emptyDir = dir => {
   return fs
     .emptyDir(dir)
     .then(() => {
-      console.log(chalkSuccess(`Directory created: ${dir}`));
       return dir;
     })
     .catch(err => console.log(chalkError(`Directory creation error: ${err}`)));
@@ -29,7 +28,6 @@ const ensureFile = file => {
   return fs
     .ensureFile(file)
     .then(() => {
-      console.log(chalkSuccess(`File created: ${file}`));
       return file;
     })
     .catch(err => console.log(chalkError(`File creation error: ${err}`)));

@@ -46,19 +46,25 @@
     "prepublishOnly": "yarn build:lib",
     "prestart": "run-s start-message build:data build:examples",
     "remove-dist": "rimraf ./dist ./bundles ./lib",
-    "start": "run-p test:watch open:src lint:watch",
+    "start": "run-p watch:docs test:watch open:src lint:watch",
     "start-message": "node config/startMessage.js",
     "test": "jest",
     "test:CI": "node config/testCi.js --maxWorkers=2",
     "test:cover": "yarn test -- --coverage ",
     "test:cover:CI": "yarn test:CI -- --coverage && cat ./coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
     "test:watch": "yarn test -- --watch",
-    "watch:docs": "npm-watch",
+    "update:examples": "run-s build:data build:examples",
+    "watch:docs": "npm-watch update:examples",
     "watch:lib": "npm-watch build:lib"
   },
   "watch": {
     "build:data": "src/lib/**/*.js",
-    "build:examples": "src/lib/**/*.js",
+    "update:examples": {
+      "patterns": [
+        "src/lib/**/index.js"
+      ],
+      "quiet": true
+    },
     "build:lib": "src/lib/**/*.js"
   },
   "peerDependencies": {
