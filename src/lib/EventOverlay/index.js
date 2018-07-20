@@ -319,7 +319,6 @@ export default class EventOverlay extends React.Component {
     const targetNode = this.container;
     const verticalOffset = targetOffset.vertical ? targetOffset.vertical - 1 : -1;
     const horizontalOffset = targetOffset.horizontal ? + targetOffset.horizontal - 1 : -1;
-    console.log(verticalOffset);
     if (!targetNode || !anchorNodeFound) return;
 
     anchorNodeFound.link = this.state.id;
