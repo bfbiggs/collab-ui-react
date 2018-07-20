@@ -36,7 +36,7 @@ class CallControl extends React.PureComponent {
         onClick={onClick}
         {...otherHTMLProps}
       >
-        <Icon name={`${type}_24`}/>
+        <Icon name={`${type}_24`} />
       </Button>
     );
   }
