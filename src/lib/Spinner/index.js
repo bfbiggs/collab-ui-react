@@ -12,6 +12,7 @@ const Spinner = props => {
   const {
     className,
     color,
+    showCheck,
     percentage,
     showPercentage,
     size,
@@ -27,10 +28,10 @@ const Spinner = props => {
     return (
       <div className={
         `cui-spinner-progress` +
+        ` cui-spinner-progress__percentage-${round(percentage)}` +
         `${(size && ` cui-spinner-progress--${size}`) || ''}` +
         `${(color && ` cui-spinner-progress--${color}`) || ''}` +
-        `${(className && ` ${className}`) || ''}` +
-        ` cui-spinner-progress__percentage-${round(percentage)}`
+        `${(className && ` ${className}`) || ''}`
         }
         {...otherHTMLProps}
       >
@@ -42,8 +43,15 @@ const Spinner = props => {
             <div className="cui-spinner-progress__fill"/>
             <div className="cui-spinner-progress__fill cui-spinner-progress__fix"/>
           </div>
-          <div className="cui-spinner-progress__inset-circle">
-            {(size === 36 && showPercentage) && <div className="cui-spinner-progress__percentage">{round(percentage)}</div>}
+          <div className={
+            `cui-spinner-progress__inset-circle` +
+            `${showCheck && percentage === 100 && ' cui-spinner-progress__inset-circle--check' || ''}`
+            }
+          >
+            {
+              size === 36 && showPercentage && !showCheck
+              && <div className="cui-spinner-progress__percentage">{round(percentage)}</div>
+            }
           </div>
         </div>
       </div>
@@ -76,6 +84,10 @@ Spinner.propTypes = {
    */
   percentage: PropTypes.number,
   /**
+   * show the check mark if percentage 100
+   */
+  showCheck: PropTypes.bool,
+  /**
    * show the number value for progress
    */
   showPercentage: PropTypes.bool,
@@ -89,6 +101,7 @@ Spinner.defaultProps = {
   className: '',
   color: 'black',
   percentage: null,
+  showCheck: false,
   showPercentage: false,
   size: 36,
 };
@@ -111,35 +124,53 @@ import {Spinner} from '@collab-ui/react';
 
 export default function Default() {
   return (
-    <div>
+    <div className="row">
 
       <div className="docs-example docs-example--spacing">
-        <h3>Size Prop</h3>
-        <h3><code className="small">size=(16)</code></h3>
+        <h3>
+          <p><code className="small">size=(16)</code></p>
+        </h3>
         <Spinner size={16}/>
-        <h3><code className="small">size=(20)</code></h3>
+      </div>
+
+      <div className="docs-example docs-example--spacing">
+        <h3>
+          <p><code className="small">size=(20)</code></p>
+        </h3>
         <Spinner size={20}/>
-        <h3><code className="small">size=(28)</code></h3>
+      </div>
+
+      <div className="docs-example docs-example--spacing">
+        <h3>
+          <p><code className="small">size=(28)</code></p>
+        </h3>
         <Spinner size={28}/>
-        <h3><code className="small">Default size=(36)</code></h3>
+      </div>
+
+      <div className="docs-example docs-example--spacing">
+        <h3>
+          <p><code className="small">Default size=(36)</code></p>
+        </h3>
         <Spinner />
       </div>
 
       <div className="docs-example docs-example--spacing">
-        <h3>Color Prop</h3>
-        <h3><code className="small">color:blue</code></h3>
+        <h3>
+          <p><code className="small">color=(blue)</code></p>
+        </h3>
         <Spinner color='blue'/>
       </div>
 
       <div className="docs-example docs-example--spacing cui--dark docs-example--dark">
-        <h3>Dark <code className="small">Spinner</code></h3>
+        <h3>Dark Spinner</h3>
         <Spinner />
       </div>
 
       <div className="docs-example docs-example--spacing">
-        <h3>Percentage Prop</h3>
-        <h3><code className="small">percentage:65</code></h3>
-        <Spinner percentage={65}/>
+          <h3>
+            <p><code className="small">percentage=(65)</code></p>
+          </h3>
+          <Spinner percentage={65}/>
       </div>
 
     </div>
@@ -148,3 +179,68 @@ export default function Default() {
 
 **/
 
+/**
+* @name Check Prop
+* @description Set showCheck to true to show and percentage to 100.
+*
+* @category communication
+* @component loader-spinner
+* @section check
+*
+* @js
+
+import {Spinner} from '@collab-ui/react';
+
+export default function Default() {
+  return (
+    <div className='row'>
+
+      <div className="docs-example docs-example--spacing">
+        <h3>
+          <p><code className="small">size=(16)</code></p>
+        </h3>
+        <Spinner
+          size={16}
+          percentage={100}
+          showCheck
+        />
+      </div>
+
+      <div className="docs-example docs-example--spacing">
+        <h3>
+          <p><code className="small">size=(20)</code></p>
+        </h3>
+          <Spinner
+            size={20}
+            percentage={100}
+            showCheck
+          />
+      </div>
+
+      <div className="docs-example docs-example--spacing">
+        <h3>
+          <p><code className="small">size=(28)</code></p>
+        </h3>
+          <Spinner
+            size={28}
+            percentage={100}
+            showCheck
+          />
+      </div>
+
+      <div>
+        <h3>
+          <p><code className="small">size=(36)</code></p>
+        </h3>
+          <Spinner
+            size={36}
+            percentage={100}
+            showCheck
+          />
+      </div>
+
+    </div>
+  );
+}
+
+**/

@@ -71,4 +71,16 @@ describe('tests for <Spinner />', () => {
     expect(wrapper.find('.cui-spinner-progress').hasClass('cui-spinner-progress--16')).toEqual(true);
     expect(global.console.warn).toHaveBeenCalledTimes(1);
   });
+
+  it('should render with showCheck and check class name with 100 percentage', () => {
+    const wrapper = shallow(<Spinner percentage={100} showCheck/>);
+
+    expect(wrapper.find('.cui-spinner-progress__inset-circle').hasClass('cui-spinner-progress__inset-circle--check')).toEqual(true);
+  });
+
+  it('should not render check if percentage is less than 100 with showCheck', () => {
+    const wrapper = shallow(<Spinner percentage={90} showCheck/>);
+
+    expect(wrapper.find('.cui-spinner-progress__inset-circle').hasClass('cui-spinner-progress__inset-circle--check')).toEqual(false);
+  });
 });
