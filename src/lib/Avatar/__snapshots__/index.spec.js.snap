@@ -11,6 +11,7 @@ ShallowWrapper {
     className={null}
     color=""
     failureBadge={false}
+    hasNotification={false}
     hideDefaultTooltip={false}
     icon={null}
     isOverview={false}
@@ -37,6 +38,7 @@ ShallowWrapper {
         undefined,
         false,
         false,
+        false,
       ],
       "className": "cui-avatar cui-avatar--medium",
       "title": null,
@@ -44,6 +46,7 @@ ShallowWrapper {
     "ref": null,
     "rendered": Array [
       undefined,
+      false,
       false,
       false,
     ],
@@ -59,6 +62,7 @@ ShallowWrapper {
           undefined,
           false,
           false,
+          false,
         ],
         "className": "cui-avatar cui-avatar--medium",
         "title": null,
@@ -66,6 +70,7 @@ ShallowWrapper {
       "ref": null,
       "rendered": Array [
         undefined,
+        false,
         false,
         false,
       ],
