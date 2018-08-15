@@ -28,8 +28,9 @@
   },
   "scripts": {
     "analyze-bundle": "node ./tools/analyzeBundle.js",
-    "build": "run-s build:data build:examples build:lib build:markdown build:docs open:dist",
-    "build:CI": "run-s build:data build:examples build:lib build:markdown build:docs copy:CI",
+    "build": "run-s build:base open:dist",
+    "build:base": "run-s build:data build:examples build:lib build:markdown build:docs ",
+    "build:CI": "run-s build:base copy:CI",
     "build:data": "node ./tools/docCreate.js",
     "build:docs": "node ./tools/website/build.js",
     "build:examples": "node ./tools/exampleCreate.js",
@@ -165,6 +166,7 @@
     "yarn": "^1.8.0"
   },
   "jest": {
+    "testURL": "http://localhost",
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tools/assetsTransformer.js",
       "\\.(scss|css|less)$": "<rootDir>/tools/assetsTransformer.js",

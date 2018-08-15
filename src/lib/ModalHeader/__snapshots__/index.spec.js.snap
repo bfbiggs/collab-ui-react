@@ -2,12 +2,12 @@
 
 exports[`tests for <ModalHeader /> should match SnapShot 1`] = `
 ShallowWrapper {
-  "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <ModalHeader
     className=""
     headerLabel=""
     id="test"
+    message=""
     showCloseButton={true}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -23,11 +23,14 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <span
-          className="cui-modal__title"
-        >
-          
-        </span>,
+        Array [
+          <span
+            className="cui-modal__title"
+          >
+            
+          </span>,
+          "",
+        ],
         <CloseIcon
           className="cui-modal__close"
           onClick={[Function]}
@@ -40,7 +43,7 @@ ShallowWrapper {
     "rendered": Array [
       Object {
         "instance": null,
-        "key": undefined,
+        "key": "title-0",
         "nodeType": "host",
         "props": Object {
           "children": "",
@@ -50,6 +53,7 @@ ShallowWrapper {
         "rendered": "",
         "type": "span",
       },
+      "",
       Object {
         "instance": null,
         "key": undefined,
@@ -72,11 +76,14 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <span
-            className="cui-modal__title"
-          >
-            
-          </span>,
+          Array [
+            <span
+              className="cui-modal__title"
+            >
+              
+            </span>,
+            "",
+          ],
           <CloseIcon
             className="cui-modal__close"
             onClick={[Function]}
@@ -89,7 +96,7 @@ ShallowWrapper {
       "rendered": Array [
         Object {
           "instance": null,
-          "key": undefined,
+          "key": "title-0",
           "nodeType": "host",
           "props": Object {
             "children": "",
@@ -99,6 +106,7 @@ ShallowWrapper {
           "rendered": "",
           "type": "span",
         },
+        "",
         Object {
           "instance": null,
           "key": undefined,
@@ -126,6 +134,8 @@ ShallowWrapper {
         "supportPrevContextArgumentOfComponentDidUpdate": true,
       },
     },
+    "attachTo": undefined,
+    "hydrateIn": undefined,
   },
 }
 `;
